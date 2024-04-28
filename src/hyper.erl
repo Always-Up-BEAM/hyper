@@ -40,7 +40,7 @@
 %%
 %% <ul>
 %% <li><a href="http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/en//pubs/archive/40671.pdf">HyperLogLog in Practice: Algorithmic Engineering of a State of The Art Cardinality Estimation Algorithm</a></li>
-%% <li><a href="https://arxiv.org/abs/1706.07290"> New Cardinality Estimation Methods for HyperLogLog Sketches]</a></li>
+%% <li><a href="https://arxiv.org/abs/1706.07290"> New Cardinality Estimation Methods for HyperLogLog Sketches</a></li>
 %%</ul>
 %%  In particular huge thanks to Omar Ertl for his clear work on this domain.
 -module(hyper).
