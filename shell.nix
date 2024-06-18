@@ -1,8 +1,9 @@
 { pkgs ? import <nixpkgs> { } }:
 
 with pkgs;
+
 mkShell {
-  buildInputs = [ erlangR25 rebar3 ];
+  buildInputs = [ erlang_26 rebar3 ];
 
   # Fix GLIBC Locale
   LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";
