@@ -324,7 +324,7 @@ sigma_sum(Z, _Zp, X, Y) ->
     Z1 = (X1 * Y) + Z,
     sigma_sum(Z1, Z, X1, Y + Y).
 
-tau(0.0) ->
+tau(+0.0) ->
     0.0;
 tau(1.0) ->
     0.0;

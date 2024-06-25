@@ -7,7 +7,7 @@ run_of_zeroes(B) ->
 
 run_of_zeroes(I, B) ->
     case B of
-        <<0:I, _/bitstring>> ->
+        <<0:1/integer, _/bitstring>> ->
             run_of_zeroes(I + 1, B);
         _ ->
             I
