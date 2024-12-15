@@ -2,13 +2,15 @@
 
 -export([run_of_zeroes/1, run_of_zeroes/2, changeV/2, m/1]).
 
+-spec run_of_zeroes(bitstring()) -> integer().
 run_of_zeroes(B) ->
     run_of_zeroes(1, B).
 
+-spec run_of_zeroes(integer(), bitstring()) -> integer().
 run_of_zeroes(I, B) ->
     case B of
-        <<0:1/integer, _/bitstring>> ->
-            run_of_zeroes(I + 1, B);
+        <<0:1/integer, B_tail/bitstring>> ->
+            run_of_zeroes(I + 1, B_tail);
         _ ->
             I
     end.

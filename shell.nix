@@ -3,7 +3,7 @@
 with pkgs;
 
 mkShell {
-  buildInputs = [ erlang_26 rebar3 ];
+  buildInputs = [ erlang_27 rebar3 ];
 
   # Fix GLIBC Locale
   LOCALE_ARCHIVE = "${pkgs.glibcLocales}/lib/locale/locale-archive";

@@ -79,7 +79,7 @@ new(RegisterImpl, P) ->
 %% @doc: Set the register to the given value, *only* if the value
 %% already stored is lower than the new value. The backend needs to
 %% ensure the register value is only allowed to increase.
--spec set(t(), Index :: integer(), Value :: integer(), hyper:registers()) ->
+-spec set(t(), Index :: integer(), Value :: bitstring(), hyper:registers()) ->
     hyper:registers().
 set(RegisterImpl, Index, Value, Registers) ->
     RegisterImpl:set(Index, Value, Registers).

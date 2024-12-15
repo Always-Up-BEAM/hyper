@@ -280,7 +280,7 @@ from_json(Struct) ->
 %%
 %% Do not use, this is going to be replaced with better solution in the future
 -spec from_json(any(), module()) -> filter().
-from_json({Struct}, Mod) ->
+from_json({Struct}, Mod) when is_list(Struct) ->
     P = proplists:get_value(<<"p">>, Struct),
     V = binary_to_atom(proplists:get_value(<<"v">>, Struct)),
     Bytes = zlib:gunzip(base64:decode(proplists:get_value(<<"registers">>, Struct))),

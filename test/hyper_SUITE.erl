@@ -85,22 +85,22 @@ backend_t(_Config) ->
             <<Index:P, RegisterValue:(64 - P)/bitstring, _/bitstring>> =
                 Hash,
             ZeroCount = hyper_utils:run_of_zeroes(RegisterValue),
-            case dict:find(Index, Registers) of
-                {ok, R} when R > ZeroCount ->
+            case Registers of
+                #{Index := R} when R > ZeroCount ->
                     Registers;
                 _ ->
-                    dict:store(Index, ZeroCount, Registers)
+                    Registers#{Index => ZeroCount}
             end
         end,
-        dict:new(),
+        #{},
         Values
     ),
     ExpectedBytes = iolist_to_binary([
         begin
-            case dict:find(I, ExpectedRegisters) of
-                {ok, V} ->
+            case ExpectedRegisters of
+                #{I := V} ->
                     <<V:8/integer>>;
-                error ->
+                _ ->
                     <<0>>
             end
         end
@@ -349,7 +349,9 @@ bad_serialization_t(Config) ->
 %%
 
 backends() ->
-    [hyper_binary].
+    [
+        hyper_binary
+    ].
 
 %%
 %% HELPERS
